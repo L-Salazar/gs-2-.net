@@ -1,0 +1,1891 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "RemoteReady API",
+    "description": "API para gerenciamento de usuários, posts, empresas e educação sobre trabalho remoto",
+    "contact": {
+      "name": "RemoteReady - FIAP",
+      "email": "remoteready@fiap.com.br"
+    },
+    "version": "v1"
+  },
+  "paths": {
+    "/api/v1/blogpost": {
+      "get": {
+        "tags": [
+          "BlogPosts"
+        ],
+        "summary": "Lista posts do blog",
+        "description": "Retorna a lista paginada de posts cadastrados, ordenados do mais recente para o mais antigo.",
+        "parameters": [
+          {
+            "name": "PaginaAtual",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "LimitePagina",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de posts retornada com sucesso",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BlogPostEntity"
+                  }
+                },
+                "example": [{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":"Aprenda técnicas comprovadas para criar uma rotina produtiva trabalhando de casa, incluindo gestão de tempo, ambiente e pausas estratégicas.","imageUrl":"https://example.com/images/rotina-remoto.jpg","tag":"Produtividade","dataCriacao":"2025-11-15T08:14:21.6925628-03:00"},{"id":2,"titulo":"Ferramentas Essenciais para Equipes Remotas","descricao":"Descubra as melhores ferramentas de comunicação, gestão de projetos e colaboração para times distribuídos geograficamente.","imageUrl":"https://example.com/images/ferramentas.jpg","tag":"Tecnologia","dataCriacao":"2025-11-17T08:14:21.6925919-03:00"},{"id":3,"titulo":"Saúde Mental no Trabalho Remoto","descricao":"Entenda os desafios psicológicos do home office e estratégias para manter o equilíbrio entre vida pessoal e profissional.","imageUrl":"https://example.com/images/saude-mental.jpg","tag":"Bem-estar","dataCriacao":"2025-11-18T08:14:21.6925922-03:00"},{"id":4,"titulo":"Comunicação Assíncrona: Guia Completo","descricao":"Domine a arte da comunicação assíncrona e aprenda a trabalhar efetivamente com equipes em diferentes fusos horários.","imageUrl":"https://example.com/images/comunicacao-assincrona.jpg","tag":"Comunicação","dataCriacao":"2025-11-19T08:14:21.6925923-03:00"},{"id":5,"titulo":"Configurando seu Home Office Ideal","descricao":"Guia prático para montar um espaço de trabalho ergonômico e produtivo em casa, desde mobília até iluminação.","imageUrl":"https://example.com/images/home-office.jpg","tag":"Produtividade","dataCriacao":"2025-11-20T08:14:21.6925924-03:00"}]
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BlogPostEntity"
+                  }
+                },
+                "example": [{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":"Aprenda técnicas comprovadas para criar uma rotina produtiva trabalhando de casa, incluindo gestão de tempo, ambiente e pausas estratégicas.","imageUrl":"https://example.com/images/rotina-remoto.jpg","tag":"Produtividade","dataCriacao":"2025-11-15T08:14:21.6925628-03:00"},{"id":2,"titulo":"Ferramentas Essenciais para Equipes Remotas","descricao":"Descubra as melhores ferramentas de comunicação, gestão de projetos e colaboração para times distribuídos geograficamente.","imageUrl":"https://example.com/images/ferramentas.jpg","tag":"Tecnologia","dataCriacao":"2025-11-17T08:14:21.6925919-03:00"},{"id":3,"titulo":"Saúde Mental no Trabalho Remoto","descricao":"Entenda os desafios psicológicos do home office e estratégias para manter o equilíbrio entre vida pessoal e profissional.","imageUrl":"https://example.com/images/saude-mental.jpg","tag":"Bem-estar","dataCriacao":"2025-11-18T08:14:21.6925922-03:00"},{"id":4,"titulo":"Comunicação Assíncrona: Guia Completo","descricao":"Domine a arte da comunicação assíncrona e aprenda a trabalhar efetivamente com equipes em diferentes fusos horários.","imageUrl":"https://example.com/images/comunicacao-assincrona.jpg","tag":"Comunicação","dataCriacao":"2025-11-19T08:14:21.6925923-03:00"},{"id":5,"titulo":"Configurando seu Home Office Ideal","descricao":"Guia prático para montar um espaço de trabalho ergonômico e produtivo em casa, desde mobília até iluminação.","imageUrl":"https://example.com/images/home-office.jpg","tag":"Produtividade","dataCriacao":"2025-11-20T08:14:21.6925924-03:00"}]
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BlogPostEntity"
+                  }
+                },
+                "example": [{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":"Aprenda técnicas comprovadas para criar uma rotina produtiva trabalhando de casa, incluindo gestão de tempo, ambiente e pausas estratégicas.","imageUrl":"https://example.com/images/rotina-remoto.jpg","tag":"Produtividade","dataCriacao":"2025-11-15T08:14:21.6925628-03:00"},{"id":2,"titulo":"Ferramentas Essenciais para Equipes Remotas","descricao":"Descubra as melhores ferramentas de comunicação, gestão de projetos e colaboração para times distribuídos geograficamente.","imageUrl":"https://example.com/images/ferramentas.jpg","tag":"Tecnologia","dataCriacao":"2025-11-17T08:14:21.6925919-03:00"},{"id":3,"titulo":"Saúde Mental no Trabalho Remoto","descricao":"Entenda os desafios psicológicos do home office e estratégias para manter o equilíbrio entre vida pessoal e profissional.","imageUrl":"https://example.com/images/saude-mental.jpg","tag":"Bem-estar","dataCriacao":"2025-11-18T08:14:21.6925922-03:00"},{"id":4,"titulo":"Comunicação Assíncrona: Guia Completo","descricao":"Domine a arte da comunicação assíncrona e aprenda a trabalhar efetivamente com equipes em diferentes fusos horários.","imageUrl":"https://example.com/images/comunicacao-assincrona.jpg","tag":"Comunicação","dataCriacao":"2025-11-19T08:14:21.6925923-03:00"},{"id":5,"titulo":"Configurando seu Home Office Ideal","descricao":"Guia prático para montar um espaço de trabalho ergonômico e produtivo em casa, desde mobília até iluminação.","imageUrl":"https://example.com/images/home-office.jpg","tag":"Produtividade","dataCriacao":"2025-11-20T08:14:21.6925924-03:00"}]
+              }
+            }
+          },
+          "204": {
+            "description": "Não há posts cadastrados"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "BlogPosts"
+        ],
+        "summary": "Cadastra um novo post",
+        "description": "Cria um novo post no blog.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BlogPostDto"
+              },
+              "example": {"titulo":"10 Dicas para Melhorar sua Produtividade Remota","descricao":"Descubra estratégias práticas utilizadas por profissionais remotos de sucesso para maximizar sua produtividade diária.","imageUrl":"https://example.com/images/produtividade-remota.jpg","tag":"Produtividade"}
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BlogPostDto"
+              },
+              "example": {"titulo":"10 Dicas para Melhorar sua Produtividade Remota","descricao":"Descubra estratégias práticas utilizadas por profissionais remotos de sucesso para maximizar sua produtividade diária.","imageUrl":"https://example.com/images/produtividade-remota.jpg","tag":"Produtividade"}
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BlogPostDto"
+              },
+              "example": {"titulo":"10 Dicas para Melhorar sua Produtividade Remota","descricao":"Descubra estratégias práticas utilizadas por profissionais remotos de sucesso para maximizar sua produtividade diária.","imageUrl":"https://example.com/images/produtividade-remota.jpg","tag":"Produtividade"}
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Post criado com sucesso",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BlogPostEntity"
+                },
+                "example": {"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":"Aprenda técnicas comprovadas para criar uma rotina produtiva trabalhando de casa, incluindo gestão de tempo, ambiente e pausas estratégicas.","imageUrl":"https://example.com/images/rotina-remoto.jpg","tag":"Produtividade","dataCriacao":"2025-11-20T08:14:21.7104464-03:00"}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BlogPostEntity"
+                },
+                "example": {"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":"Aprenda técnicas comprovadas para criar uma rotina produtiva trabalhando de casa, incluindo gestão de tempo, ambiente e pausas estratégicas.","imageUrl":"https://example.com/images/rotina-remoto.jpg","tag":"Produtividade","dataCriacao":"2025-11-20T08:14:21.7104464-03:00"}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BlogPostEntity"
+                },
+                "example": {"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":"Aprenda técnicas comprovadas para criar uma rotina produtiva trabalhando de casa, incluindo gestão de tempo, ambiente e pausas estratégicas.","imageUrl":"https://example.com/images/rotina-remoto.jpg","tag":"Produtividade","dataCriacao":"2025-11-20T08:14:21.7104464-03:00"}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/blogpost/{id}": {
+      "get": {
+        "tags": [
+          "BlogPosts"
+        ],
+        "summary": "Obtém post por ID",
+        "description": "Retorna o post correspondente ao ID informado.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Post encontrado",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BlogPostEntity"
+                },
+                "example": {"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":"Aprenda técnicas comprovadas para criar uma rotina produtiva trabalhando de casa, incluindo gestão de tempo, ambiente e pausas estratégicas.","imageUrl":"https://example.com/images/rotina-remoto.jpg","tag":"Produtividade","dataCriacao":"2025-11-20T08:14:21.7119671-03:00"}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BlogPostEntity"
+                },
+                "example": {"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":"Aprenda técnicas comprovadas para criar uma rotina produtiva trabalhando de casa, incluindo gestão de tempo, ambiente e pausas estratégicas.","imageUrl":"https://example.com/images/rotina-remoto.jpg","tag":"Produtividade","dataCriacao":"2025-11-20T08:14:21.7119671-03:00"}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BlogPostEntity"
+                },
+                "example": {"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":"Aprenda técnicas comprovadas para criar uma rotina produtiva trabalhando de casa, incluindo gestão de tempo, ambiente e pausas estratégicas.","imageUrl":"https://example.com/images/rotina-remoto.jpg","tag":"Produtividade","dataCriacao":"2025-11-20T08:14:21.7119671-03:00"}
+              }
+            }
+          },
+          "404": {
+            "description": "Post não encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "BlogPosts"
+        ],
+        "summary": "Atualiza um post",
+        "description": "Atualiza os dados de um post existente.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BlogPostDto"
+              },
+              "example": {"titulo":"Como Estruturar sua Rotina de Trabalho Remoto - Guia 2025","descricao":"Aprenda técnicas comprovadas e atualizadas para criar uma rotina produtiva trabalhando de casa, com novos insights de 2025.","imageUrl":"https://example.com/images/rotina-remoto-2025.jpg","tag":"Produtividade"}
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/BlogPostDto"
+              },
+              "example": {"titulo":"Como Estruturar sua Rotina de Trabalho Remoto - Guia 2025","descricao":"Aprenda técnicas comprovadas e atualizadas para criar uma rotina produtiva trabalhando de casa, com novos insights de 2025.","imageUrl":"https://example.com/images/rotina-remoto-2025.jpg","tag":"Produtividade"}
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/BlogPostDto"
+              },
+              "example": {"titulo":"Como Estruturar sua Rotina de Trabalho Remoto - Guia 2025","descricao":"Aprenda técnicas comprovadas e atualizadas para criar uma rotina produtiva trabalhando de casa, com novos insights de 2025.","imageUrl":"https://example.com/images/rotina-remoto-2025.jpg","tag":"Produtividade"}
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Post atualizado com sucesso",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BlogPostEntity"
+                },
+                "example": {"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":"Aprenda técnicas comprovadas para criar uma rotina produtiva trabalhando de casa, incluindo gestão de tempo, ambiente e pausas estratégicas.","imageUrl":"https://example.com/images/rotina-remoto.jpg","tag":"Produtividade","dataCriacao":"2025-11-20T08:14:21.7128931-03:00"}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BlogPostEntity"
+                },
+                "example": {"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":"Aprenda técnicas comprovadas para criar uma rotina produtiva trabalhando de casa, incluindo gestão de tempo, ambiente e pausas estratégicas.","imageUrl":"https://example.com/images/rotina-remoto.jpg","tag":"Produtividade","dataCriacao":"2025-11-20T08:14:21.7128931-03:00"}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BlogPostEntity"
+                },
+                "example": {"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":"Aprenda técnicas comprovadas para criar uma rotina produtiva trabalhando de casa, incluindo gestão de tempo, ambiente e pausas estratégicas.","imageUrl":"https://example.com/images/rotina-remoto.jpg","tag":"Produtividade","dataCriacao":"2025-11-20T08:14:21.7128931-03:00"}
+              }
+            }
+          },
+          "404": {
+            "description": "Post não encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "BlogPosts"
+        ],
+        "summary": "Deleta um post",
+        "description": "Remove um post do blog.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Post deletado com sucesso",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BlogPostEntity"
+                },
+                "example": {"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":"Aprenda técnicas comprovadas para criar uma rotina produtiva trabalhando de casa, incluindo gestão de tempo, ambiente e pausas estratégicas.","imageUrl":"https://example.com/images/rotina-remoto.jpg","tag":"Produtividade","dataCriacao":"2025-11-20T08:14:21.7134315-03:00"}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BlogPostEntity"
+                },
+                "example": {"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":"Aprenda técnicas comprovadas para criar uma rotina produtiva trabalhando de casa, incluindo gestão de tempo, ambiente e pausas estratégicas.","imageUrl":"https://example.com/images/rotina-remoto.jpg","tag":"Produtividade","dataCriacao":"2025-11-20T08:14:21.7134315-03:00"}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BlogPostEntity"
+                },
+                "example": {"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":"Aprenda técnicas comprovadas para criar uma rotina produtiva trabalhando de casa, incluindo gestão de tempo, ambiente e pausas estratégicas.","imageUrl":"https://example.com/images/rotina-remoto.jpg","tag":"Produtividade","dataCriacao":"2025-11-20T08:14:21.7134315-03:00"}
+              }
+            }
+          },
+          "404": {
+            "description": "Post não encontrado"
+          }
+        }
+      }
+    },
+    "/api/v1/blogpost/tag/{tag}": {
+      "get": {
+        "tags": [
+          "BlogPosts"
+        ],
+        "summary": "Busca posts por tag",
+        "description": "Retorna a lista paginada de posts filtrados por tag.",
+        "parameters": [
+          {
+            "name": "tag",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "PaginaAtual",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "LimitePagina",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de posts retornada com sucesso",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BlogPostEntity"
+                  }
+                },
+                "example": [{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":"Aprenda técnicas comprovadas para criar uma rotina produtiva trabalhando de casa, incluindo gestão de tempo, ambiente e pausas estratégicas.","imageUrl":"https://example.com/images/rotina-remoto.jpg","tag":"Produtividade","dataCriacao":"2025-11-15T08:14:21.7139343-03:00"},{"id":2,"titulo":"Ferramentas Essenciais para Equipes Remotas","descricao":"Descubra as melhores ferramentas de comunicação, gestão de projetos e colaboração para times distribuídos geograficamente.","imageUrl":"https://example.com/images/ferramentas.jpg","tag":"Tecnologia","dataCriacao":"2025-11-17T08:14:21.7139353-03:00"},{"id":3,"titulo":"Saúde Mental no Trabalho Remoto","descricao":"Entenda os desafios psicológicos do home office e estratégias para manter o equilíbrio entre vida pessoal e profissional.","imageUrl":"https://example.com/images/saude-mental.jpg","tag":"Bem-estar","dataCriacao":"2025-11-18T08:14:21.7139354-03:00"},{"id":4,"titulo":"Comunicação Assíncrona: Guia Completo","descricao":"Domine a arte da comunicação assíncrona e aprenda a trabalhar efetivamente com equipes em diferentes fusos horários.","imageUrl":"https://example.com/images/comunicacao-assincrona.jpg","tag":"Comunicação","dataCriacao":"2025-11-19T08:14:21.7139355-03:00"},{"id":5,"titulo":"Configurando seu Home Office Ideal","descricao":"Guia prático para montar um espaço de trabalho ergonômico e produtivo em casa, desde mobília até iluminação.","imageUrl":"https://example.com/images/home-office.jpg","tag":"Produtividade","dataCriacao":"2025-11-20T08:14:21.7139357-03:00"}]
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BlogPostEntity"
+                  }
+                },
+                "example": [{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":"Aprenda técnicas comprovadas para criar uma rotina produtiva trabalhando de casa, incluindo gestão de tempo, ambiente e pausas estratégicas.","imageUrl":"https://example.com/images/rotina-remoto.jpg","tag":"Produtividade","dataCriacao":"2025-11-15T08:14:21.7139343-03:00"},{"id":2,"titulo":"Ferramentas Essenciais para Equipes Remotas","descricao":"Descubra as melhores ferramentas de comunicação, gestão de projetos e colaboração para times distribuídos geograficamente.","imageUrl":"https://example.com/images/ferramentas.jpg","tag":"Tecnologia","dataCriacao":"2025-11-17T08:14:21.7139353-03:00"},{"id":3,"titulo":"Saúde Mental no Trabalho Remoto","descricao":"Entenda os desafios psicológicos do home office e estratégias para manter o equilíbrio entre vida pessoal e profissional.","imageUrl":"https://example.com/images/saude-mental.jpg","tag":"Bem-estar","dataCriacao":"2025-11-18T08:14:21.7139354-03:00"},{"id":4,"titulo":"Comunicação Assíncrona: Guia Completo","descricao":"Domine a arte da comunicação assíncrona e aprenda a trabalhar efetivamente com equipes em diferentes fusos horários.","imageUrl":"https://example.com/images/comunicacao-assincrona.jpg","tag":"Comunicação","dataCriacao":"2025-11-19T08:14:21.7139355-03:00"},{"id":5,"titulo":"Configurando seu Home Office Ideal","descricao":"Guia prático para montar um espaço de trabalho ergonômico e produtivo em casa, desde mobília até iluminação.","imageUrl":"https://example.com/images/home-office.jpg","tag":"Produtividade","dataCriacao":"2025-11-20T08:14:21.7139357-03:00"}]
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BlogPostEntity"
+                  }
+                },
+                "example": [{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":"Aprenda técnicas comprovadas para criar uma rotina produtiva trabalhando de casa, incluindo gestão de tempo, ambiente e pausas estratégicas.","imageUrl":"https://example.com/images/rotina-remoto.jpg","tag":"Produtividade","dataCriacao":"2025-11-15T08:14:21.7139343-03:00"},{"id":2,"titulo":"Ferramentas Essenciais para Equipes Remotas","descricao":"Descubra as melhores ferramentas de comunicação, gestão de projetos e colaboração para times distribuídos geograficamente.","imageUrl":"https://example.com/images/ferramentas.jpg","tag":"Tecnologia","dataCriacao":"2025-11-17T08:14:21.7139353-03:00"},{"id":3,"titulo":"Saúde Mental no Trabalho Remoto","descricao":"Entenda os desafios psicológicos do home office e estratégias para manter o equilíbrio entre vida pessoal e profissional.","imageUrl":"https://example.com/images/saude-mental.jpg","tag":"Bem-estar","dataCriacao":"2025-11-18T08:14:21.7139354-03:00"},{"id":4,"titulo":"Comunicação Assíncrona: Guia Completo","descricao":"Domine a arte da comunicação assíncrona e aprenda a trabalhar efetivamente com equipes em diferentes fusos horários.","imageUrl":"https://example.com/images/comunicacao-assincrona.jpg","tag":"Comunicação","dataCriacao":"2025-11-19T08:14:21.7139355-03:00"},{"id":5,"titulo":"Configurando seu Home Office Ideal","descricao":"Guia prático para montar um espaço de trabalho ergonômico e produtivo em casa, desde mobília até iluminação.","imageUrl":"https://example.com/images/home-office.jpg","tag":"Produtividade","dataCriacao":"2025-11-20T08:14:21.7139357-03:00"}]
+              }
+            }
+          },
+          "204": {
+            "description": "Não há posts com esta tag"
+          }
+        }
+      }
+    },
+    "/api/v1/blogpost/recentes": {
+      "get": {
+        "tags": [
+          "BlogPosts"
+        ],
+        "summary": "Lista posts mais recentes",
+        "description": "Retorna a lista paginada de posts ordenados por data de criação (mais recentes primeiro).",
+        "parameters": [
+          {
+            "name": "PaginaAtual",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "LimitePagina",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de posts retornada com sucesso",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BlogPostEntity"
+                  }
+                },
+                "example": [{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":"Aprenda técnicas comprovadas para criar uma rotina produtiva trabalhando de casa, incluindo gestão de tempo, ambiente e pausas estratégicas.","imageUrl":"https://example.com/images/rotina-remoto.jpg","tag":"Produtividade","dataCriacao":"2025-11-15T08:14:21.7144465-03:00"},{"id":2,"titulo":"Ferramentas Essenciais para Equipes Remotas","descricao":"Descubra as melhores ferramentas de comunicação, gestão de projetos e colaboração para times distribuídos geograficamente.","imageUrl":"https://example.com/images/ferramentas.jpg","tag":"Tecnologia","dataCriacao":"2025-11-17T08:14:21.7144469-03:00"},{"id":3,"titulo":"Saúde Mental no Trabalho Remoto","descricao":"Entenda os desafios psicológicos do home office e estratégias para manter o equilíbrio entre vida pessoal e profissional.","imageUrl":"https://example.com/images/saude-mental.jpg","tag":"Bem-estar","dataCriacao":"2025-11-18T08:14:21.714447-03:00"},{"id":4,"titulo":"Comunicação Assíncrona: Guia Completo","descricao":"Domine a arte da comunicação assíncrona e aprenda a trabalhar efetivamente com equipes em diferentes fusos horários.","imageUrl":"https://example.com/images/comunicacao-assincrona.jpg","tag":"Comunicação","dataCriacao":"2025-11-19T08:14:21.7144472-03:00"},{"id":5,"titulo":"Configurando seu Home Office Ideal","descricao":"Guia prático para montar um espaço de trabalho ergonômico e produtivo em casa, desde mobília até iluminação.","imageUrl":"https://example.com/images/home-office.jpg","tag":"Produtividade","dataCriacao":"2025-11-20T08:14:21.7144473-03:00"}]
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BlogPostEntity"
+                  }
+                },
+                "example": [{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":"Aprenda técnicas comprovadas para criar uma rotina produtiva trabalhando de casa, incluindo gestão de tempo, ambiente e pausas estratégicas.","imageUrl":"https://example.com/images/rotina-remoto.jpg","tag":"Produtividade","dataCriacao":"2025-11-15T08:14:21.7144465-03:00"},{"id":2,"titulo":"Ferramentas Essenciais para Equipes Remotas","descricao":"Descubra as melhores ferramentas de comunicação, gestão de projetos e colaboração para times distribuídos geograficamente.","imageUrl":"https://example.com/images/ferramentas.jpg","tag":"Tecnologia","dataCriacao":"2025-11-17T08:14:21.7144469-03:00"},{"id":3,"titulo":"Saúde Mental no Trabalho Remoto","descricao":"Entenda os desafios psicológicos do home office e estratégias para manter o equilíbrio entre vida pessoal e profissional.","imageUrl":"https://example.com/images/saude-mental.jpg","tag":"Bem-estar","dataCriacao":"2025-11-18T08:14:21.714447-03:00"},{"id":4,"titulo":"Comunicação Assíncrona: Guia Completo","descricao":"Domine a arte da comunicação assíncrona e aprenda a trabalhar efetivamente com equipes em diferentes fusos horários.","imageUrl":"https://example.com/images/comunicacao-assincrona.jpg","tag":"Comunicação","dataCriacao":"2025-11-19T08:14:21.7144472-03:00"},{"id":5,"titulo":"Configurando seu Home Office Ideal","descricao":"Guia prático para montar um espaço de trabalho ergonômico e produtivo em casa, desde mobília até iluminação.","imageUrl":"https://example.com/images/home-office.jpg","tag":"Produtividade","dataCriacao":"2025-11-20T08:14:21.7144473-03:00"}]
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/BlogPostEntity"
+                  }
+                },
+                "example": [{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":"Aprenda técnicas comprovadas para criar uma rotina produtiva trabalhando de casa, incluindo gestão de tempo, ambiente e pausas estratégicas.","imageUrl":"https://example.com/images/rotina-remoto.jpg","tag":"Produtividade","dataCriacao":"2025-11-15T08:14:21.7144465-03:00"},{"id":2,"titulo":"Ferramentas Essenciais para Equipes Remotas","descricao":"Descubra as melhores ferramentas de comunicação, gestão de projetos e colaboração para times distribuídos geograficamente.","imageUrl":"https://example.com/images/ferramentas.jpg","tag":"Tecnologia","dataCriacao":"2025-11-17T08:14:21.7144469-03:00"},{"id":3,"titulo":"Saúde Mental no Trabalho Remoto","descricao":"Entenda os desafios psicológicos do home office e estratégias para manter o equilíbrio entre vida pessoal e profissional.","imageUrl":"https://example.com/images/saude-mental.jpg","tag":"Bem-estar","dataCriacao":"2025-11-18T08:14:21.714447-03:00"},{"id":4,"titulo":"Comunicação Assíncrona: Guia Completo","descricao":"Domine a arte da comunicação assíncrona e aprenda a trabalhar efetivamente com equipes em diferentes fusos horários.","imageUrl":"https://example.com/images/comunicacao-assincrona.jpg","tag":"Comunicação","dataCriacao":"2025-11-19T08:14:21.7144472-03:00"},{"id":5,"titulo":"Configurando seu Home Office Ideal","descricao":"Guia prático para montar um espaço de trabalho ergonômico e produtivo em casa, desde mobília até iluminação.","imageUrl":"https://example.com/images/home-office.jpg","tag":"Produtividade","dataCriacao":"2025-11-20T08:14:21.7144473-03:00"}]
+              }
+            }
+          },
+          "204": {
+            "description": "Não há posts cadastrados"
+          }
+        }
+      }
+    },
+    "/api/v1/empresa": {
+      "get": {
+        "tags": [
+          "Empresas"
+        ],
+        "summary": "Lista empresas",
+        "description": "Retorna a lista paginada de empresas cadastradas.",
+        "parameters": [
+          {
+            "name": "PaginaAtual",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "LimitePagina",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de empresas retornada com sucesso",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EmpresaEntity"
+                  }
+                },
+                "example": [{"id":1,"nome":"GitLab","descricao":"Plataforma de DevOps completa, 100% remoto desde o início","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/gitlab.png","website":"https://gitlab.com/careers","dataCriacao":"2025-11-20T08:14:21.7157719-03:00"},{"id":2,"nome":"Automattic","descricao":"Empresa por trás do WordPress, trabalho remoto distribuído globalmente","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/automattic.png","website":"https://automattic.com/work-with-us","dataCriacao":"2025-11-20T08:14:21.7157946-03:00"},{"id":3,"nome":"Toptal","descricao":"Rede de freelancers de elite, modelo 100% remoto","area":"Consultoria","contratandoAgora":"N","logoUrl":"https://example.com/logos/toptal.png","website":"https://www.toptal.com/careers","dataCriacao":"2025-11-20T08:14:21.7157948-03:00"},{"id":4,"nome":"Zapier","descricao":"Automação de workflows, equipe distribuída pelo mundo","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/zapier.png","website":"https://zapier.com/jobs","dataCriacao":"2025-11-20T08:14:21.715795-03:00"}]
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EmpresaEntity"
+                  }
+                },
+                "example": [{"id":1,"nome":"GitLab","descricao":"Plataforma de DevOps completa, 100% remoto desde o início","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/gitlab.png","website":"https://gitlab.com/careers","dataCriacao":"2025-11-20T08:14:21.7157719-03:00"},{"id":2,"nome":"Automattic","descricao":"Empresa por trás do WordPress, trabalho remoto distribuído globalmente","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/automattic.png","website":"https://automattic.com/work-with-us","dataCriacao":"2025-11-20T08:14:21.7157946-03:00"},{"id":3,"nome":"Toptal","descricao":"Rede de freelancers de elite, modelo 100% remoto","area":"Consultoria","contratandoAgora":"N","logoUrl":"https://example.com/logos/toptal.png","website":"https://www.toptal.com/careers","dataCriacao":"2025-11-20T08:14:21.7157948-03:00"},{"id":4,"nome":"Zapier","descricao":"Automação de workflows, equipe distribuída pelo mundo","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/zapier.png","website":"https://zapier.com/jobs","dataCriacao":"2025-11-20T08:14:21.715795-03:00"}]
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EmpresaEntity"
+                  }
+                },
+                "example": [{"id":1,"nome":"GitLab","descricao":"Plataforma de DevOps completa, 100% remoto desde o início","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/gitlab.png","website":"https://gitlab.com/careers","dataCriacao":"2025-11-20T08:14:21.7157719-03:00"},{"id":2,"nome":"Automattic","descricao":"Empresa por trás do WordPress, trabalho remoto distribuído globalmente","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/automattic.png","website":"https://automattic.com/work-with-us","dataCriacao":"2025-11-20T08:14:21.7157946-03:00"},{"id":3,"nome":"Toptal","descricao":"Rede de freelancers de elite, modelo 100% remoto","area":"Consultoria","contratandoAgora":"N","logoUrl":"https://example.com/logos/toptal.png","website":"https://www.toptal.com/careers","dataCriacao":"2025-11-20T08:14:21.7157948-03:00"},{"id":4,"nome":"Zapier","descricao":"Automação de workflows, equipe distribuída pelo mundo","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/zapier.png","website":"https://zapier.com/jobs","dataCriacao":"2025-11-20T08:14:21.715795-03:00"}]
+              }
+            }
+          },
+          "204": {
+            "description": "Não há empresas cadastradas"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Empresas"
+        ],
+        "summary": "Cadastra uma nova empresa",
+        "description": "Cria uma nova empresa no sistema.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmpresaDto"
+              },
+              "example": {"nome":"Buffer","descricao":"Plataforma de social media, pioneira em trabalho remoto","area":"Marketing Digital","contratandoAgora":"Y","logoUrl":"https://example.com/logos/buffer.png","website":"https://buffer.com/journey"}
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmpresaDto"
+              },
+              "example": {"nome":"Buffer","descricao":"Plataforma de social media, pioneira em trabalho remoto","area":"Marketing Digital","contratandoAgora":"Y","logoUrl":"https://example.com/logos/buffer.png","website":"https://buffer.com/journey"}
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmpresaDto"
+              },
+              "example": {"nome":"Buffer","descricao":"Plataforma de social media, pioneira em trabalho remoto","area":"Marketing Digital","contratandoAgora":"Y","logoUrl":"https://example.com/logos/buffer.png","website":"https://buffer.com/journey"}
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Empresa criada com sucesso",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmpresaEntity"
+                },
+                "example": {"id":1,"nome":"GitLab","descricao":"Plataforma de DevOps completa, 100% remoto desde o início","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/gitlab.png","website":"https://gitlab.com/careers","dataCriacao":"2025-11-20T08:14:21.7187674-03:00"}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmpresaEntity"
+                },
+                "example": {"id":1,"nome":"GitLab","descricao":"Plataforma de DevOps completa, 100% remoto desde o início","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/gitlab.png","website":"https://gitlab.com/careers","dataCriacao":"2025-11-20T08:14:21.7187674-03:00"}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmpresaEntity"
+                },
+                "example": {"id":1,"nome":"GitLab","descricao":"Plataforma de DevOps completa, 100% remoto desde o início","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/gitlab.png","website":"https://gitlab.com/careers","dataCriacao":"2025-11-20T08:14:21.7187674-03:00"}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/empresa/{id}": {
+      "get": {
+        "tags": [
+          "Empresas"
+        ],
+        "summary": "Obtém empresa por ID",
+        "description": "Retorna a empresa correspondente ao ID informado.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Empresa encontrada",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmpresaEntity"
+                },
+                "example": {"id":1,"nome":"GitLab","descricao":"Plataforma de DevOps completa, 100% remoto desde o início","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/gitlab.png","website":"https://gitlab.com/careers","dataCriacao":"2025-11-20T08:14:21.7193271-03:00"}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmpresaEntity"
+                },
+                "example": {"id":1,"nome":"GitLab","descricao":"Plataforma de DevOps completa, 100% remoto desde o início","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/gitlab.png","website":"https://gitlab.com/careers","dataCriacao":"2025-11-20T08:14:21.7193271-03:00"}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmpresaEntity"
+                },
+                "example": {"id":1,"nome":"GitLab","descricao":"Plataforma de DevOps completa, 100% remoto desde o início","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/gitlab.png","website":"https://gitlab.com/careers","dataCriacao":"2025-11-20T08:14:21.7193271-03:00"}
+              }
+            }
+          },
+          "404": {
+            "description": "Empresa não encontrada"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Empresas"
+        ],
+        "summary": "Atualiza uma empresa",
+        "description": "Atualiza os dados de uma empresa existente.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmpresaDto"
+              },
+              "example": {"nome":"GitLab Inc.","descricao":"A plataforma completa de DevOps com IA, 100% remoto","area":"Tecnologia & DevOps","contratandoAgora":"N","logoUrl":"https://example.com/logos/gitlab-new.png","website":"https://about.gitlab.com/jobs"}
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmpresaDto"
+              },
+              "example": {"nome":"GitLab Inc.","descricao":"A plataforma completa de DevOps com IA, 100% remoto","area":"Tecnologia & DevOps","contratandoAgora":"N","logoUrl":"https://example.com/logos/gitlab-new.png","website":"https://about.gitlab.com/jobs"}
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/EmpresaDto"
+              },
+              "example": {"nome":"GitLab Inc.","descricao":"A plataforma completa de DevOps com IA, 100% remoto","area":"Tecnologia & DevOps","contratandoAgora":"N","logoUrl":"https://example.com/logos/gitlab-new.png","website":"https://about.gitlab.com/jobs"}
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Empresa atualizada com sucesso",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmpresaEntity"
+                },
+                "example": {"id":1,"nome":"GitLab","descricao":"Plataforma de DevOps completa, 100% remoto desde o início","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/gitlab.png","website":"https://gitlab.com/careers","dataCriacao":"2025-11-20T08:14:21.7202708-03:00"}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmpresaEntity"
+                },
+                "example": {"id":1,"nome":"GitLab","descricao":"Plataforma de DevOps completa, 100% remoto desde o início","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/gitlab.png","website":"https://gitlab.com/careers","dataCriacao":"2025-11-20T08:14:21.7202708-03:00"}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmpresaEntity"
+                },
+                "example": {"id":1,"nome":"GitLab","descricao":"Plataforma de DevOps completa, 100% remoto desde o início","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/gitlab.png","website":"https://gitlab.com/careers","dataCriacao":"2025-11-20T08:14:21.7202708-03:00"}
+              }
+            }
+          },
+          "404": {
+            "description": "Empresa não encontrada"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Empresas"
+        ],
+        "summary": "Deleta uma empresa",
+        "description": "Remove uma empresa do sistema.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Empresa deletada com sucesso",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmpresaEntity"
+                },
+                "example": {"id":1,"nome":"GitLab","descricao":"Plataforma de DevOps completa, 100% remoto desde o início","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/gitlab.png","website":"https://gitlab.com/careers","dataCriacao":"2025-11-20T08:14:21.7208258-03:00"}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmpresaEntity"
+                },
+                "example": {"id":1,"nome":"GitLab","descricao":"Plataforma de DevOps completa, 100% remoto desde o início","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/gitlab.png","website":"https://gitlab.com/careers","dataCriacao":"2025-11-20T08:14:21.7208258-03:00"}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EmpresaEntity"
+                },
+                "example": {"id":1,"nome":"GitLab","descricao":"Plataforma de DevOps completa, 100% remoto desde o início","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/gitlab.png","website":"https://gitlab.com/careers","dataCriacao":"2025-11-20T08:14:21.7208258-03:00"}
+              }
+            }
+          },
+          "404": {
+            "description": "Empresa não encontrada"
+          }
+        }
+      }
+    },
+    "/api/v1/empresa/area/{area}": {
+      "get": {
+        "tags": [
+          "Empresas"
+        ],
+        "summary": "Busca empresas por área",
+        "description": "Retorna a lista paginada de empresas filtradas por área de atuação.",
+        "parameters": [
+          {
+            "name": "area",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "PaginaAtual",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "LimitePagina",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de empresas retornada com sucesso",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EmpresaEntity"
+                  }
+                },
+                "example": [{"id":1,"nome":"GitLab","descricao":"Plataforma de DevOps completa, 100% remoto desde o início","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/gitlab.png","website":"https://gitlab.com/careers","dataCriacao":"2025-11-20T08:14:21.7213524-03:00"},{"id":2,"nome":"Automattic","descricao":"Empresa por trás do WordPress, trabalho remoto distribuído globalmente","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/automattic.png","website":"https://automattic.com/work-with-us","dataCriacao":"2025-11-20T08:14:21.7213528-03:00"},{"id":3,"nome":"Toptal","descricao":"Rede de freelancers de elite, modelo 100% remoto","area":"Consultoria","contratandoAgora":"N","logoUrl":"https://example.com/logos/toptal.png","website":"https://www.toptal.com/careers","dataCriacao":"2025-11-20T08:14:21.721353-03:00"},{"id":4,"nome":"Zapier","descricao":"Automação de workflows, equipe distribuída pelo mundo","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/zapier.png","website":"https://zapier.com/jobs","dataCriacao":"2025-11-20T08:14:21.7213531-03:00"}]
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EmpresaEntity"
+                  }
+                },
+                "example": [{"id":1,"nome":"GitLab","descricao":"Plataforma de DevOps completa, 100% remoto desde o início","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/gitlab.png","website":"https://gitlab.com/careers","dataCriacao":"2025-11-20T08:14:21.7213524-03:00"},{"id":2,"nome":"Automattic","descricao":"Empresa por trás do WordPress, trabalho remoto distribuído globalmente","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/automattic.png","website":"https://automattic.com/work-with-us","dataCriacao":"2025-11-20T08:14:21.7213528-03:00"},{"id":3,"nome":"Toptal","descricao":"Rede de freelancers de elite, modelo 100% remoto","area":"Consultoria","contratandoAgora":"N","logoUrl":"https://example.com/logos/toptal.png","website":"https://www.toptal.com/careers","dataCriacao":"2025-11-20T08:14:21.721353-03:00"},{"id":4,"nome":"Zapier","descricao":"Automação de workflows, equipe distribuída pelo mundo","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/zapier.png","website":"https://zapier.com/jobs","dataCriacao":"2025-11-20T08:14:21.7213531-03:00"}]
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EmpresaEntity"
+                  }
+                },
+                "example": [{"id":1,"nome":"GitLab","descricao":"Plataforma de DevOps completa, 100% remoto desde o início","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/gitlab.png","website":"https://gitlab.com/careers","dataCriacao":"2025-11-20T08:14:21.7213524-03:00"},{"id":2,"nome":"Automattic","descricao":"Empresa por trás do WordPress, trabalho remoto distribuído globalmente","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/automattic.png","website":"https://automattic.com/work-with-us","dataCriacao":"2025-11-20T08:14:21.7213528-03:00"},{"id":3,"nome":"Toptal","descricao":"Rede de freelancers de elite, modelo 100% remoto","area":"Consultoria","contratandoAgora":"N","logoUrl":"https://example.com/logos/toptal.png","website":"https://www.toptal.com/careers","dataCriacao":"2025-11-20T08:14:21.721353-03:00"},{"id":4,"nome":"Zapier","descricao":"Automação de workflows, equipe distribuída pelo mundo","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/zapier.png","website":"https://zapier.com/jobs","dataCriacao":"2025-11-20T08:14:21.7213531-03:00"}]
+              }
+            }
+          },
+          "204": {
+            "description": "Não há empresas nesta área"
+          }
+        }
+      }
+    },
+    "/api/v1/empresa/contratando": {
+      "get": {
+        "tags": [
+          "Empresas"
+        ],
+        "summary": "Lista empresas que estão contratando",
+        "description": "Retorna a lista paginada de empresas que estão com vagas abertas.",
+        "parameters": [
+          {
+            "name": "PaginaAtual",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "LimitePagina",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de empresas retornada com sucesso",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EmpresaEntity"
+                  }
+                },
+                "example": [{"id":1,"nome":"GitLab","descricao":"Plataforma de DevOps completa, 100% remoto desde o início","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/gitlab.png","website":"https://gitlab.com/careers","dataCriacao":"2025-11-20T08:14:21.7218688-03:00"},{"id":2,"nome":"Automattic","descricao":"Empresa por trás do WordPress, trabalho remoto distribuído globalmente","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/automattic.png","website":"https://automattic.com/work-with-us","dataCriacao":"2025-11-20T08:14:21.7218691-03:00"},{"id":3,"nome":"Toptal","descricao":"Rede de freelancers de elite, modelo 100% remoto","area":"Consultoria","contratandoAgora":"N","logoUrl":"https://example.com/logos/toptal.png","website":"https://www.toptal.com/careers","dataCriacao":"2025-11-20T08:14:21.7218692-03:00"},{"id":4,"nome":"Zapier","descricao":"Automação de workflows, equipe distribuída pelo mundo","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/zapier.png","website":"https://zapier.com/jobs","dataCriacao":"2025-11-20T08:14:21.7218694-03:00"}]
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EmpresaEntity"
+                  }
+                },
+                "example": [{"id":1,"nome":"GitLab","descricao":"Plataforma de DevOps completa, 100% remoto desde o início","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/gitlab.png","website":"https://gitlab.com/careers","dataCriacao":"2025-11-20T08:14:21.7218688-03:00"},{"id":2,"nome":"Automattic","descricao":"Empresa por trás do WordPress, trabalho remoto distribuído globalmente","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/automattic.png","website":"https://automattic.com/work-with-us","dataCriacao":"2025-11-20T08:14:21.7218691-03:00"},{"id":3,"nome":"Toptal","descricao":"Rede de freelancers de elite, modelo 100% remoto","area":"Consultoria","contratandoAgora":"N","logoUrl":"https://example.com/logos/toptal.png","website":"https://www.toptal.com/careers","dataCriacao":"2025-11-20T08:14:21.7218692-03:00"},{"id":4,"nome":"Zapier","descricao":"Automação de workflows, equipe distribuída pelo mundo","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/zapier.png","website":"https://zapier.com/jobs","dataCriacao":"2025-11-20T08:14:21.7218694-03:00"}]
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EmpresaEntity"
+                  }
+                },
+                "example": [{"id":1,"nome":"GitLab","descricao":"Plataforma de DevOps completa, 100% remoto desde o início","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/gitlab.png","website":"https://gitlab.com/careers","dataCriacao":"2025-11-20T08:14:21.7218688-03:00"},{"id":2,"nome":"Automattic","descricao":"Empresa por trás do WordPress, trabalho remoto distribuído globalmente","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/automattic.png","website":"https://automattic.com/work-with-us","dataCriacao":"2025-11-20T08:14:21.7218691-03:00"},{"id":3,"nome":"Toptal","descricao":"Rede de freelancers de elite, modelo 100% remoto","area":"Consultoria","contratandoAgora":"N","logoUrl":"https://example.com/logos/toptal.png","website":"https://www.toptal.com/careers","dataCriacao":"2025-11-20T08:14:21.7218692-03:00"},{"id":4,"nome":"Zapier","descricao":"Automação de workflows, equipe distribuída pelo mundo","area":"Tecnologia","contratandoAgora":"Y","logoUrl":"https://example.com/logos/zapier.png","website":"https://zapier.com/jobs","dataCriacao":"2025-11-20T08:14:21.7218694-03:00"}]
+              }
+            }
+          },
+          "204": {
+            "description": "Não há empresas contratando no momento"
+          }
+        }
+      }
+    },
+    "/api/Health/live": {
+      "get": {
+        "tags": [
+          "Health"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Health/ready": {
+      "get": {
+        "tags": [
+          "Health"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/v1/userpost": {
+      "get": {
+        "tags": [
+          "UserPosts"
+        ],
+        "summary": "Lista todos os registros de leitura",
+        "description": "Retorna a lista paginada de registros de posts lidos.",
+        "parameters": [
+          {
+            "name": "PaginaAtual",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "LimitePagina",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista retornada com sucesso",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserPostEntity"
+                  }
+                },
+                "example": [{"id":1,"idUsuario":1,"idPost":1,"status":"LIDO","dataLeitura":"2025-11-15T08:14:21.7234444-03:00","usuario":{"id":1,"nome":"João Silva","email":"joao@email.com","senha":"","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7235146-03:00"},"post":{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":null,"imageUrl":null,"tag":null,"dataCriacao":"2025-11-20T08:14:21.7236027-03:00"}},{"id":2,"idUsuario":1,"idPost":2,"status":"LIDO","dataLeitura":"2025-11-17T08:14:21.7236249-03:00","usuario":{"id":1,"nome":"João Silva","email":"joao@email.com","senha":"","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.723625-03:00"},"post":{"id":2,"titulo":"Ferramentas Essenciais para Equipes Remotas","descricao":null,"imageUrl":null,"tag":null,"dataCriacao":"2025-11-20T08:14:21.7236251-03:00"}},{"id":3,"idUsuario":2,"idPost":1,"status":"LIDO","dataLeitura":"2025-11-19T08:14:21.7236253-03:00","usuario":{"id":2,"nome":"Maria Santos","email":"maria@email.com","senha":"","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7236254-03:00"},"post":{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":null,"imageUrl":null,"tag":null,"dataCriacao":"2025-11-20T08:14:21.7236255-03:00"}}]
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserPostEntity"
+                  }
+                },
+                "example": [{"id":1,"idUsuario":1,"idPost":1,"status":"LIDO","dataLeitura":"2025-11-15T08:14:21.7234444-03:00","usuario":{"id":1,"nome":"João Silva","email":"joao@email.com","senha":"","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7235146-03:00"},"post":{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":null,"imageUrl":null,"tag":null,"dataCriacao":"2025-11-20T08:14:21.7236027-03:00"}},{"id":2,"idUsuario":1,"idPost":2,"status":"LIDO","dataLeitura":"2025-11-17T08:14:21.7236249-03:00","usuario":{"id":1,"nome":"João Silva","email":"joao@email.com","senha":"","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.723625-03:00"},"post":{"id":2,"titulo":"Ferramentas Essenciais para Equipes Remotas","descricao":null,"imageUrl":null,"tag":null,"dataCriacao":"2025-11-20T08:14:21.7236251-03:00"}},{"id":3,"idUsuario":2,"idPost":1,"status":"LIDO","dataLeitura":"2025-11-19T08:14:21.7236253-03:00","usuario":{"id":2,"nome":"Maria Santos","email":"maria@email.com","senha":"","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7236254-03:00"},"post":{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":null,"imageUrl":null,"tag":null,"dataCriacao":"2025-11-20T08:14:21.7236255-03:00"}}]
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserPostEntity"
+                  }
+                },
+                "example": [{"id":1,"idUsuario":1,"idPost":1,"status":"LIDO","dataLeitura":"2025-11-15T08:14:21.7234444-03:00","usuario":{"id":1,"nome":"João Silva","email":"joao@email.com","senha":"","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7235146-03:00"},"post":{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":null,"imageUrl":null,"tag":null,"dataCriacao":"2025-11-20T08:14:21.7236027-03:00"}},{"id":2,"idUsuario":1,"idPost":2,"status":"LIDO","dataLeitura":"2025-11-17T08:14:21.7236249-03:00","usuario":{"id":1,"nome":"João Silva","email":"joao@email.com","senha":"","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.723625-03:00"},"post":{"id":2,"titulo":"Ferramentas Essenciais para Equipes Remotas","descricao":null,"imageUrl":null,"tag":null,"dataCriacao":"2025-11-20T08:14:21.7236251-03:00"}},{"id":3,"idUsuario":2,"idPost":1,"status":"LIDO","dataLeitura":"2025-11-19T08:14:21.7236253-03:00","usuario":{"id":2,"nome":"Maria Santos","email":"maria@email.com","senha":"","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7236254-03:00"},"post":{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":null,"imageUrl":null,"tag":null,"dataCriacao":"2025-11-20T08:14:21.7236255-03:00"}}]
+              }
+            }
+          },
+          "204": {
+            "description": "Não há registros cadastrados"
+          }
+        }
+      }
+    },
+    "/api/v1/userpost/{id}": {
+      "get": {
+        "tags": [
+          "UserPosts"
+        ],
+        "summary": "Obtém registro por ID",
+        "description": "Retorna o registro correspondente ao ID informado.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Registro encontrado",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserPostEntity"
+                },
+                "example": {"id":1,"idUsuario":1,"idPost":1,"status":"LIDO","dataLeitura":"2025-11-20T08:14:21.7267093-03:00","usuario":{"id":1,"nome":"João Silva","email":"joao@email.com","senha":"","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7267094-03:00"},"post":{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":null,"imageUrl":null,"tag":null,"dataCriacao":"2025-11-20T08:14:21.7267096-03:00"}}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserPostEntity"
+                },
+                "example": {"id":1,"idUsuario":1,"idPost":1,"status":"LIDO","dataLeitura":"2025-11-20T08:14:21.7267093-03:00","usuario":{"id":1,"nome":"João Silva","email":"joao@email.com","senha":"","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7267094-03:00"},"post":{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":null,"imageUrl":null,"tag":null,"dataCriacao":"2025-11-20T08:14:21.7267096-03:00"}}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserPostEntity"
+                },
+                "example": {"id":1,"idUsuario":1,"idPost":1,"status":"LIDO","dataLeitura":"2025-11-20T08:14:21.7267093-03:00","usuario":{"id":1,"nome":"João Silva","email":"joao@email.com","senha":"","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7267094-03:00"},"post":{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":null,"imageUrl":null,"tag":null,"dataCriacao":"2025-11-20T08:14:21.7267096-03:00"}}
+              }
+            }
+          },
+          "404": {
+            "description": "Registro não encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "UserPosts"
+        ],
+        "summary": "Atualiza um registro",
+        "description": "Atualiza o status de um registro de leitura.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserPostDto"
+              },
+              "example": {"idUsuario":1,"idPost":1,"status":"EM_ANDAMENTO"}
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserPostDto"
+              },
+              "example": {"idUsuario":1,"idPost":1,"status":"EM_ANDAMENTO"}
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UserPostDto"
+              },
+              "example": {"idUsuario":1,"idPost":1,"status":"EM_ANDAMENTO"}
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Registro atualizado com sucesso",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserPostEntity"
+                },
+                "example": {"id":1,"idUsuario":1,"idPost":1,"status":"LIDO","dataLeitura":"2025-11-20T08:14:21.7286082-03:00","usuario":{"id":1,"nome":"João Silva","email":"joao@email.com","senha":"","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7286083-03:00"},"post":{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":null,"imageUrl":null,"tag":null,"dataCriacao":"2025-11-20T08:14:21.7286085-03:00"}}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserPostEntity"
+                },
+                "example": {"id":1,"idUsuario":1,"idPost":1,"status":"LIDO","dataLeitura":"2025-11-20T08:14:21.7286082-03:00","usuario":{"id":1,"nome":"João Silva","email":"joao@email.com","senha":"","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7286083-03:00"},"post":{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":null,"imageUrl":null,"tag":null,"dataCriacao":"2025-11-20T08:14:21.7286085-03:00"}}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserPostEntity"
+                },
+                "example": {"id":1,"idUsuario":1,"idPost":1,"status":"LIDO","dataLeitura":"2025-11-20T08:14:21.7286082-03:00","usuario":{"id":1,"nome":"João Silva","email":"joao@email.com","senha":"","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7286083-03:00"},"post":{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":null,"imageUrl":null,"tag":null,"dataCriacao":"2025-11-20T08:14:21.7286085-03:00"}}
+              }
+            }
+          },
+          "404": {
+            "description": "Registro não encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "UserPosts"
+        ],
+        "summary": "Deleta um registro",
+        "description": "Remove um registro de leitura do sistema.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Registro deletado com sucesso",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserPostEntity"
+                },
+                "example": {"id":1,"idUsuario":1,"idPost":1,"status":"LIDO","dataLeitura":"2025-11-20T08:14:21.729161-03:00","usuario":{"id":1,"nome":"João Silva","email":"joao@email.com","senha":"","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7291611-03:00"},"post":{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":null,"imageUrl":null,"tag":null,"dataCriacao":"2025-11-20T08:14:21.7291612-03:00"}}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserPostEntity"
+                },
+                "example": {"id":1,"idUsuario":1,"idPost":1,"status":"LIDO","dataLeitura":"2025-11-20T08:14:21.729161-03:00","usuario":{"id":1,"nome":"João Silva","email":"joao@email.com","senha":"","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7291611-03:00"},"post":{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":null,"imageUrl":null,"tag":null,"dataCriacao":"2025-11-20T08:14:21.7291612-03:00"}}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserPostEntity"
+                },
+                "example": {"id":1,"idUsuario":1,"idPost":1,"status":"LIDO","dataLeitura":"2025-11-20T08:14:21.729161-03:00","usuario":{"id":1,"nome":"João Silva","email":"joao@email.com","senha":"","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7291611-03:00"},"post":{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":null,"imageUrl":null,"tag":null,"dataCriacao":"2025-11-20T08:14:21.7291612-03:00"}}
+              }
+            }
+          },
+          "404": {
+            "description": "Registro não encontrado"
+          }
+        }
+      }
+    },
+    "/api/v1/userpost/usuario/{idUsuario}": {
+      "get": {
+        "tags": [
+          "UserPosts"
+        ],
+        "summary": "Lista posts lidos por um usuário",
+        "description": "Retorna a lista paginada de posts que um usuário já leu.",
+        "parameters": [
+          {
+            "name": "idUsuario",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PaginaAtual",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "LimitePagina",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista retornada com sucesso",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserPostEntity"
+                  }
+                },
+                "example": [{"id":1,"idUsuario":1,"idPost":1,"status":"LIDO","dataLeitura":"2025-11-15T08:14:21.7296699-03:00","usuario":{"id":1,"nome":"João Silva","email":"joao@email.com","senha":"","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7296704-03:00"},"post":{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":null,"imageUrl":null,"tag":null,"dataCriacao":"2025-11-20T08:14:21.7296706-03:00"}},{"id":2,"idUsuario":1,"idPost":2,"status":"LIDO","dataLeitura":"2025-11-17T08:14:21.7296711-03:00","usuario":{"id":1,"nome":"João Silva","email":"joao@email.com","senha":"","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7296712-03:00"},"post":{"id":2,"titulo":"Ferramentas Essenciais para Equipes Remotas","descricao":null,"imageUrl":null,"tag":null,"dataCriacao":"2025-11-20T08:14:21.7296713-03:00"}},{"id":3,"idUsuario":2,"idPost":1,"status":"LIDO","dataLeitura":"2025-11-19T08:14:21.7296714-03:00","usuario":{"id":2,"nome":"Maria Santos","email":"maria@email.com","senha":"","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7296715-03:00"},"post":{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":null,"imageUrl":null,"tag":null,"dataCriacao":"2025-11-20T08:14:21.7296716-03:00"}}]
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserPostEntity"
+                  }
+                },
+                "example": [{"id":1,"idUsuario":1,"idPost":1,"status":"LIDO","dataLeitura":"2025-11-15T08:14:21.7296699-03:00","usuario":{"id":1,"nome":"João Silva","email":"joao@email.com","senha":"","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7296704-03:00"},"post":{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":null,"imageUrl":null,"tag":null,"dataCriacao":"2025-11-20T08:14:21.7296706-03:00"}},{"id":2,"idUsuario":1,"idPost":2,"status":"LIDO","dataLeitura":"2025-11-17T08:14:21.7296711-03:00","usuario":{"id":1,"nome":"João Silva","email":"joao@email.com","senha":"","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7296712-03:00"},"post":{"id":2,"titulo":"Ferramentas Essenciais para Equipes Remotas","descricao":null,"imageUrl":null,"tag":null,"dataCriacao":"2025-11-20T08:14:21.7296713-03:00"}},{"id":3,"idUsuario":2,"idPost":1,"status":"LIDO","dataLeitura":"2025-11-19T08:14:21.7296714-03:00","usuario":{"id":2,"nome":"Maria Santos","email":"maria@email.com","senha":"","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7296715-03:00"},"post":{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":null,"imageUrl":null,"tag":null,"dataCriacao":"2025-11-20T08:14:21.7296716-03:00"}}]
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UserPostEntity"
+                  }
+                },
+                "example": [{"id":1,"idUsuario":1,"idPost":1,"status":"LIDO","dataLeitura":"2025-11-15T08:14:21.7296699-03:00","usuario":{"id":1,"nome":"João Silva","email":"joao@email.com","senha":"","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7296704-03:00"},"post":{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":null,"imageUrl":null,"tag":null,"dataCriacao":"2025-11-20T08:14:21.7296706-03:00"}},{"id":2,"idUsuario":1,"idPost":2,"status":"LIDO","dataLeitura":"2025-11-17T08:14:21.7296711-03:00","usuario":{"id":1,"nome":"João Silva","email":"joao@email.com","senha":"","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7296712-03:00"},"post":{"id":2,"titulo":"Ferramentas Essenciais para Equipes Remotas","descricao":null,"imageUrl":null,"tag":null,"dataCriacao":"2025-11-20T08:14:21.7296713-03:00"}},{"id":3,"idUsuario":2,"idPost":1,"status":"LIDO","dataLeitura":"2025-11-19T08:14:21.7296714-03:00","usuario":{"id":2,"nome":"Maria Santos","email":"maria@email.com","senha":"","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7296715-03:00"},"post":{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":null,"imageUrl":null,"tag":null,"dataCriacao":"2025-11-20T08:14:21.7296716-03:00"}}]
+              }
+            }
+          },
+          "204": {
+            "description": "Usuário ainda não leu nenhum post"
+          }
+        }
+      }
+    },
+    "/api/v1/userpost/progresso/{idUsuario}": {
+      "get": {
+        "tags": [
+          "UserPosts"
+        ],
+        "summary": "Obtém progresso de leitura do usuário",
+        "description": "Retorna estatísticas de progresso incluindo total de posts lidos e elegibilidade para certificado.",
+        "parameters": [
+          {
+            "name": "idUsuario",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Progresso retornado com sucesso"
+          }
+        }
+      }
+    },
+    "/api/v1/userpost/certificado/{idUsuario}": {
+      "get": {
+        "tags": [
+          "UserPosts"
+        ],
+        "summary": "Verifica elegibilidade para certificado",
+        "description": "Verifica se o usuário já leu 10 ou mais posts e está elegível para gerar certificado.",
+        "parameters": [
+          {
+            "name": "idUsuario",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Elegibilidade verificada"
+          }
+        }
+      }
+    },
+    "/api/v1/userpost/marcar-lido": {
+      "post": {
+        "tags": [
+          "UserPosts"
+        ],
+        "summary": "Marca um post como lido",
+        "description": "Registra que o usuário leu um post específico. Usado para tracking e gamificação.",
+        "parameters": [
+          {
+            "name": "idUsuario",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "idPost",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Post marcado como lido com sucesso",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserPostEntity"
+                },
+                "example": {"id":1,"idUsuario":1,"idPost":1,"status":"LIDO","dataLeitura":"2025-11-20T08:14:21.7307433-03:00","usuario":{"id":1,"nome":"João Silva","email":"joao@email.com","senha":"","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7307434-03:00"},"post":{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":null,"imageUrl":null,"tag":null,"dataCriacao":"2025-11-20T08:14:21.7307436-03:00"}}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserPostEntity"
+                },
+                "example": {"id":1,"idUsuario":1,"idPost":1,"status":"LIDO","dataLeitura":"2025-11-20T08:14:21.7307433-03:00","usuario":{"id":1,"nome":"João Silva","email":"joao@email.com","senha":"","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7307434-03:00"},"post":{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":null,"imageUrl":null,"tag":null,"dataCriacao":"2025-11-20T08:14:21.7307436-03:00"}}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UserPostEntity"
+                },
+                "example": {"id":1,"idUsuario":1,"idPost":1,"status":"LIDO","dataLeitura":"2025-11-20T08:14:21.7307433-03:00","usuario":{"id":1,"nome":"João Silva","email":"joao@email.com","senha":"","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7307434-03:00"},"post":{"id":1,"titulo":"Como Estruturar sua Rotina de Trabalho Remoto","descricao":null,"imageUrl":null,"tag":null,"dataCriacao":"2025-11-20T08:14:21.7307436-03:00"}}
+              }
+            }
+          },
+          "400": {
+            "description": "Post já foi marcado como lido anteriormente"
+          }
+        }
+      }
+    },
+    "/api/v1/usuario/autenticar": {
+      "post": {
+        "tags": [
+          "Usuarios"
+        ],
+        "summary": "Autentica um usuário",
+        "description": "Realiza a autenticação do usuário e retorna um token JWT.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioDto"
+              },
+              "example": {"nome":"João Silva","email":"joao.silva@email.com","senha":"senha123","tipoUsuario":"USER"}
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioDto"
+              },
+              "example": {"nome":"João Silva","email":"joao.silva@email.com","senha":"senha123","tipoUsuario":"USER"}
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioDto"
+              },
+              "example": {"nome":"João Silva","email":"joao.silva@email.com","senha":"senha123","tipoUsuario":"USER"}
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Autenticação realizada com sucesso"
+          },
+          "401": {
+            "description": "Credenciais inválidas"
+          }
+        }
+      }
+    },
+    "/api/v1/usuario": {
+      "get": {
+        "tags": [
+          "Usuarios"
+        ],
+        "summary": "Lista usuários",
+        "description": "Retorna a lista paginada de usuários cadastrados.",
+        "parameters": [
+          {
+            "name": "PaginaAtual",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 1
+            }
+          },
+          {
+            "name": "LimitePagina",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 10
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Lista de usuários retornada com sucesso",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UsuarioEntity"
+                  }
+                },
+                "example": [{"id":1,"nome":"João Silva","email":"joao.silva@email.com","senha":"senha123","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7327282-03:00"},{"id":2,"nome":"Maria Santos","email":"maria.santos@email.com","senha":"senha456","tipoUsuario":"ADMIN","dataCriacao":"2025-11-20T08:14:21.7327542-03:00"},{"id":3,"nome":"Pedro Costa","email":"pedro.costa@email.com","senha":"senha789","tipoUsuario":"OPERADOR","dataCriacao":"2025-11-20T08:14:21.7327544-03:00"}]
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UsuarioEntity"
+                  }
+                },
+                "example": [{"id":1,"nome":"João Silva","email":"joao.silva@email.com","senha":"senha123","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7327282-03:00"},{"id":2,"nome":"Maria Santos","email":"maria.santos@email.com","senha":"senha456","tipoUsuario":"ADMIN","dataCriacao":"2025-11-20T08:14:21.7327542-03:00"},{"id":3,"nome":"Pedro Costa","email":"pedro.costa@email.com","senha":"senha789","tipoUsuario":"OPERADOR","dataCriacao":"2025-11-20T08:14:21.7327544-03:00"}]
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/UsuarioEntity"
+                  }
+                },
+                "example": [{"id":1,"nome":"João Silva","email":"joao.silva@email.com","senha":"senha123","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7327282-03:00"},{"id":2,"nome":"Maria Santos","email":"maria.santos@email.com","senha":"senha456","tipoUsuario":"ADMIN","dataCriacao":"2025-11-20T08:14:21.7327542-03:00"},{"id":3,"nome":"Pedro Costa","email":"pedro.costa@email.com","senha":"senha789","tipoUsuario":"OPERADOR","dataCriacao":"2025-11-20T08:14:21.7327544-03:00"}]
+              }
+            }
+          },
+          "204": {
+            "description": "Não há usuários cadastrados"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Usuarios"
+        ],
+        "summary": "Cadastra um novo usuário",
+        "description": "Cria um novo usuário no sistema.",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioDto"
+              },
+              "example": {"nome":"João Silva","email":"joao.silva@email.com","senha":"senha123","tipoUsuario":"USER"}
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioDto"
+              },
+              "example": {"nome":"João Silva","email":"joao.silva@email.com","senha":"senha123","tipoUsuario":"USER"}
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioDto"
+              },
+              "example": {"nome":"João Silva","email":"joao.silva@email.com","senha":"senha123","tipoUsuario":"USER"}
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Usuário criado com sucesso",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioEntity"
+                },
+                "example": {"id":1,"nome":"João Silva","email":"joao.silva@email.com","senha":"senha123","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7335493-03:00"}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioEntity"
+                },
+                "example": {"id":1,"nome":"João Silva","email":"joao.silva@email.com","senha":"senha123","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7335493-03:00"}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioEntity"
+                },
+                "example": {"id":1,"nome":"João Silva","email":"joao.silva@email.com","senha":"senha123","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7335493-03:00"}
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/usuario/{id}": {
+      "get": {
+        "tags": [
+          "Usuarios"
+        ],
+        "summary": "Obtém usuário por ID",
+        "description": "Retorna o usuário correspondente ao ID informado.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuário encontrado",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioEntity"
+                },
+                "example": {"id":1,"nome":"João Silva","email":"joao.silva@email.com","senha":"senha123","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7340907-03:00"}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioEntity"
+                },
+                "example": {"id":1,"nome":"João Silva","email":"joao.silva@email.com","senha":"senha123","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7340907-03:00"}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioEntity"
+                },
+                "example": {"id":1,"nome":"João Silva","email":"joao.silva@email.com","senha":"senha123","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7340907-03:00"}
+              }
+            }
+          },
+          "404": {
+            "description": "Usuário não encontrado"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Usuarios"
+        ],
+        "summary": "Atualiza um usuário",
+        "description": "Atualiza os dados de um usuário existente.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioDto"
+              },
+              "example": {"nome":"João Silva Atualizado","email":"joao.silva.novo@email.com","senha":"novaSenha456","tipoUsuario":"ADMIN"}
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioDto"
+              },
+              "example": {"nome":"João Silva Atualizado","email":"joao.silva.novo@email.com","senha":"novaSenha456","tipoUsuario":"ADMIN"}
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/UsuarioDto"
+              },
+              "example": {"nome":"João Silva Atualizado","email":"joao.silva.novo@email.com","senha":"novaSenha456","tipoUsuario":"ADMIN"}
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Usuário atualizado com sucesso",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioEntity"
+                },
+                "example": {"id":1,"nome":"João Silva","email":"joao.silva@email.com","senha":"senha123","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7350311-03:00"}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioEntity"
+                },
+                "example": {"id":1,"nome":"João Silva","email":"joao.silva@email.com","senha":"senha123","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7350311-03:00"}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioEntity"
+                },
+                "example": {"id":1,"nome":"João Silva","email":"joao.silva@email.com","senha":"senha123","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7350311-03:00"}
+              }
+            }
+          },
+          "404": {
+            "description": "Usuário não encontrado"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Usuarios"
+        ],
+        "summary": "Deleta um usuário",
+        "description": "Remove um usuário do sistema.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Usuário deletado com sucesso",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioEntity"
+                },
+                "example": {"id":1,"nome":"João Silva","email":"joao.silva@email.com","senha":"senha123","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7355623-03:00"}
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioEntity"
+                },
+                "example": {"id":1,"nome":"João Silva","email":"joao.silva@email.com","senha":"senha123","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7355623-03:00"}
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/UsuarioEntity"
+                },
+                "example": {"id":1,"nome":"João Silva","email":"joao.silva@email.com","senha":"senha123","tipoUsuario":"USER","dataCriacao":"2025-11-20T08:14:21.7355623-03:00"}
+              }
+            }
+          },
+          "404": {
+            "description": "Usuário não encontrado"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "BlogPostDto": {
+        "type": "object",
+        "properties": {
+          "titulo": {
+            "type": "string",
+            "nullable": true
+          },
+          "descricao": {
+            "type": "string",
+            "nullable": true
+          },
+          "imageUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "tag": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "BlogPostEntity": {
+        "required": [
+          "titulo"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "titulo": {
+            "maxLength": 120,
+            "minLength": 0,
+            "type": "string"
+          },
+          "descricao": {
+            "maxLength": 600,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "imageUrl": {
+            "maxLength": 300,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "tag": {
+            "maxLength": 50,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "dataCriacao": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "EmpresaDto": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "descricao": {
+            "type": "string",
+            "nullable": true
+          },
+          "area": {
+            "type": "string",
+            "nullable": true
+          },
+          "contratandoAgora": {
+            "type": "string",
+            "nullable": true
+          },
+          "logoUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "website": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "EmpresaEntity": {
+        "required": [
+          "contratandoAgora",
+          "nome"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nome": {
+            "maxLength": 120,
+            "minLength": 0,
+            "type": "string"
+          },
+          "descricao": {
+            "maxLength": 300,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "area": {
+            "maxLength": 60,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "contratandoAgora": {
+            "maxLength": 1,
+            "minLength": 0,
+            "type": "string"
+          },
+          "logoUrl": {
+            "maxLength": 300,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "website": {
+            "maxLength": 150,
+            "minLength": 0,
+            "type": "string",
+            "nullable": true
+          },
+          "dataCriacao": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserPostDto": {
+        "type": "object",
+        "properties": {
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idPost": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserPostEntity": {
+        "required": [
+          "dataLeitura",
+          "idPost",
+          "idUsuario",
+          "status"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idUsuario": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "idPost": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "status": {
+            "maxLength": 20,
+            "minLength": 0,
+            "type": "string"
+          },
+          "dataLeitura": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "usuario": {
+            "$ref": "#/components/schemas/UsuarioEntity"
+          },
+          "post": {
+            "$ref": "#/components/schemas/BlogPostEntity"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UsuarioDto": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "senha": {
+            "type": "string",
+            "nullable": true
+          },
+          "tipoUsuario": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UsuarioEntity": {
+        "required": [
+          "email",
+          "nome",
+          "senha",
+          "tipoUsuario"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "nome": {
+            "maxLength": 100,
+            "minLength": 0,
+            "type": "string"
+          },
+          "email": {
+            "maxLength": 120,
+            "minLength": 0,
+            "type": "string"
+          },
+          "senha": {
+            "maxLength": 60,
+            "minLength": 0,
+            "type": "string"
+          },
+          "tipoUsuario": {
+            "maxLength": 20,
+            "minLength": 0,
+            "type": "string"
+          },
+          "dataCriacao": {
+            "type": "string",
+            "format": "date-time"
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}

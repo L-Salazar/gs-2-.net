@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\Eficientiza-s3.props" />
+</Project>

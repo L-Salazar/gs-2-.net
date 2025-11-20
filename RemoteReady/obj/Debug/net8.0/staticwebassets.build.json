@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "0xeqG/vjSdL79hWyqfsl4fjOGXbQtIdz+h72wBiEwcY=",
+  "Source": "RemoteReady",
+  "BasePath": "_content/RemoteReady",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}

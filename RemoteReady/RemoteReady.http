@@ -1,0 +1,6 @@
+@Eficientiza_s3_HostAddress = http://localhost:5041
+
+GET {{Eficientiza_s3_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
