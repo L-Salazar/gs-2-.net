@@ -5,6 +5,8 @@
 
 # RemoteReady API
 
+Video demonstrativo: [https://www.youtube.com/watch?v=Tu6e6R4XNn4]
+
 # Sobre o projeto
 
 RemoteReady é uma plataforma moderna desenvolvida para preparar estudantes e profissionais para o modelo de trabalho remoto e híbrido, que hoje domina empresas de tecnologia, inovação e serviços digitais. O projeto oferece uma experiência completa composta por:
@@ -14,15 +16,6 @@ A solução permite que usuários consumam conteúdos curtos sobre produtividade
 A administração de usuários, postagens, empresas e certificados é realizada por um painel web seguro, voltado para gestores ou equipe acadêmica.
 
 ## 🏗️ Arquitetura
-
-### Acesso
-```http
-
-{
-  "email": "admin@gmail.com",
-  "senha": "123123ab"
-}
-```
 
 O projeto segue uma arquitetura em camadas (Clean Architecture):
 
