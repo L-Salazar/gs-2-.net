@@ -7,6 +7,8 @@
 
 Video demonstrativo: [https://www.youtube.com/watch?v=Tu6e6R4XNn4]
 
+Link do Deploy: [https://gs-2-net.onrender.com/swagger/index.html]
+
 # Sobre o projeto
 
 RemoteReady é uma plataforma moderna desenvolvida para preparar estudantes e profissionais para o modelo de trabalho remoto e híbrido, que hoje domina empresas de tecnologia, inovação e serviços digitais. O projeto oferece uma experiência completa composta por:
