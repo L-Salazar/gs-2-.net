@@ -22,6 +22,8 @@ WORKDIR /app
 # Copia arquivos publicados
 COPY --from=build /app/publish .
 
+ENV ASPNETCORE_ENVIRONMENT=Development
+
 # Porta usada no Render
 ENV ASPNETCORE_URLS=http://+:\$PORT
 EXPOSE 10000
